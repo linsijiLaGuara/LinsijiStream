@@ -9,9 +9,10 @@ function Artist({ name, image }) {
   const handleIconClick = () => {
     setIsPlaying(!isPlaying);
   };
+
   return (
     <div className="artist">
-      <img src={image} alt={name} />{" "}
+      <img src={image} alt={name} className="artist-image" />
       <div className="icon-container" onClick={handleIconClick}>
         <FontAwesomeIcon
           icon={isPlaying ? faCirclePause : faCirclePlay}

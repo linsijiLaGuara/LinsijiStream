@@ -10,15 +10,17 @@
 .sidebar-menu,
 .library,
 .empty-menu {
-  width: 100%;
+  width: 95%;
   background-color: #312559;
   color: white;
   padding: 20px;
   border-radius: 20px;
+  gap: 3px;
 }
 
 .library {
   margin-top: 5%;
+
 }
 
 .logo {
@@ -36,9 +38,7 @@
   font-size: 11px;
 }
 
-.empty-menu {
-  margin-top: 5%;
-}
+
 
 .menu {
   gap: 4px;
@@ -65,4 +65,13 @@
   .library-item {
     padding: 1%; 
   }
+}
+.library-icons{
+  margin-bottom: 5%;
+}
+.empty-menu-color{
+  height: 200%;
+}
+.empty-menu {
+  margin-top: 5%;
 }
