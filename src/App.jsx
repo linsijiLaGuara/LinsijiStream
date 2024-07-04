@@ -1,18 +1,27 @@
-import React from 'react';
-import Sidebar from './components/Sidebar';
-import Header from './components/Headar';
-import MainContent from './components/MainContent';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Login from "./vista/Login";
+import Register from "./vista/Resgister";
+import Home from "./vista/Home";
+import Header from "./components/Header";
+import { AppProvider } from "./Contexto/AppContext";
+import "./App.css";
+
+/*{}
+          {}*/
 
 function App() {
   return (
-    <div className="app">
-      <Sidebar />
-      <div className="main-section">
-        <Header />
-        <MainContent />
-      </div>
-    </div>
+    <>
+      <AppProvider>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </AppProvider>
+    </>
   );
 }
 
