@@ -1,12 +1,18 @@
-import { useState } from 'react'
-import './App.css'
-import LinsijiStreamContainer from './contenedor/Contenedor'
+import React from 'react';
+import Sidebar from './components/Sidebar';
+import Header from './components/Headar';
+import MainContent from './components/MainContent';
+import './App.css';
 
 function App() {
   return (
-    <>
-      <LinsijiStreamContainer />
-    </>
+    <div className="app">
+      <Sidebar />
+      <div className="main-section">
+        <Header />
+        <MainContent />
+      </div>
+    </div>
   );
 }
 

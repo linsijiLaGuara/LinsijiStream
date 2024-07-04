@@ -1,0 +1,33 @@
+/* MainContent.css */
+.main-content {
+  padding: 20px;
+  background-color: #312559;
+  color: white;
+  flex-grow: 1; 
+  margin: 10px; 
+}
+
+.artists-title {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  text-align:left;
+}
+
+.artists {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.artist {
+  text-align: center;
+  margin-bottom: 20px;
+  flex-basis: 30%;
+  max-width: 300px;
+}
+
+.artist img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}

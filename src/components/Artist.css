@@ -1,0 +1,56 @@
+
+.artist {
+  text-align: center;
+  margin-bottom: 20px; 
+  flex-basis: 30%; 
+  max-width: 200px; 
+}
+
+.artist img {
+  border-radius: 50%;
+  width: 100px; 
+  height: 100px;
+  object-fit: cover; 
+ }
+.artist-name {
+  margin-top: 10px;
+  font-size: 0.9em; 
+}
+
+@media (max-width: 768px) {
+  .artist {
+    flex-basis: 45%; 
+  }
+
+  .artist img {
+    width: 80px; 
+    height: 80px;
+  }
+
+  .artist-name {
+    font-size: 0.8em;
+  }
+}
+
+.icon-container {
+  display: inline-block;
+}
+
+.icon-container {
+  display: inline-block;
+  cursor: pointer; 
+}
+
+.custom-icon {
+  border: 1px solid #ffffff4e; 
+  border-radius: 220%; 
+  padding: 5px; 
+  color: #FFFFFF; 
+  transition: border-color 0.3s ease, color 0.3s ease; 
+}
+
+.custom-icon:hover {
+  border-color: #FFFFFF; 
+  color: #6f00ff; 
+}
+

@@ -1,0 +1,68 @@
+.sidebar-container {
+  display: flex;
+  flex-flow: column;
+  height: 250px;
+  margin: 3%;
+  border-radius: 10px;
+  gap: 3px;
+}
+
+.sidebar-menu,
+.library,
+.empty-menu {
+  width: 100%;
+  background-color: #312559;
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.library {
+  margin-top: 5%;
+}
+
+.logo {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.library-item {
+  background-color: #692c60;
+  border-radius: 10px;
+  padding: 2%;
+}
+
+.text-crear {
+  font-size: 11px;
+}
+
+.empty-menu {
+  margin-top: 5%;
+}
+
+.menu {
+  gap: 4px;
+}
+
+
+@media (max-width: 768px) {
+  .sidebar-container {
+    height: auto; 
+  }
+
+  .sidebar-menu,
+  .library,
+  .empty-menu {
+    padding: 10px; 
+    border-radius: 10px; /
+  }
+
+  .logo {
+    font-size: 1.2em; 
+    margin-bottom: 10px; 
+  }
+
+  .library-item {
+    padding: 1%; 
+  }
+}
