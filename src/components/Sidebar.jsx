@@ -14,7 +14,7 @@ function Sidebar() {
       <div className="sidebar-container">
         <div className="sidebar-menu">
           <div className="logo">
-            <FontAwesomeIcon icon={faReplyAll} /> LinsijiStream
+            <FontAwesomeIcon icon={faReplyAll} />LinsijiStream
           </div>
           <div className="menu">
             <div className="menu-item">

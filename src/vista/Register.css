@@ -1,0 +1,95 @@
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #192253;
+}
+
+.register-container {
+  background-color: #192253;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid #5E5E5E;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #192253;
+  text-align: center;
+}
+
+input:focus,
+select:focus {
+  border-color: #5E5E5E;
+  outline: none;
+}
+
+.form-button {
+  background-color: #312559;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.form-button:hover {
+  background-color: #0e2135;
+}
+
+.navigation-button {
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.navigation-button:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

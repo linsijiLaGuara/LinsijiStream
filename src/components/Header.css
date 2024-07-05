@@ -1,25 +1,24 @@
 .header {
   margin-top: 3%;
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 20px;
-    background-color:#192253;
-    color: white;
-  }
-  
- .login {
-    margin-left: 20px;
-    margin-right: 10px;
-    cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  background-color: #192253;
+  color: white;
+}
 
-  }
-  .register {
-    margin-left: 20px;
-    cursor: pointer;
-  }
-/* styles.css */
+.login {
+  margin-left: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.register {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
 .custom-login-button {
-  background-color: #B9B9B9;
+  background-color: #b9b9b9;
   color: #ffffff;
   border: 1px solid #707070;
   padding: 10px 20px;
@@ -27,7 +26,7 @@
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border-radius: 20px; 
+  border-radius: 20px;
 }
 
 .custom-login-button:hover {
@@ -35,18 +34,17 @@
   color: #ffffff;
 }
 
-
 .custom-register-button {
-  color: #B9B9B9; 
-  background-color: transparent; 
-  border: none; 
+  color: #b9b9b9;
+  background-color: transparent;
+  border: none;
   padding: 10px 20px;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-  transition: color 0.3s ease; 
+  transition: color 0.3s ease;
 }
 
 .custom-register-button:hover {
-  color: #ffffff; 
+  color: #ffffff;
 }

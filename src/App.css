@@ -8,11 +8,16 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
 
 .app {
   display: flex;
-
+  height: calc(100vh - 120px); 
+  gap: 2%;
 }
+
+
 
 .main-section {
+  flex: 1; 
   display: flex;
   flex-direction: column;
-  width: 100%;
+
 }
+

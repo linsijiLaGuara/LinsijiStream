@@ -7,14 +7,10 @@ import Header from "./components/Header";
 import { AppProvider } from "./Contexto/AppContext";
 import "./App.css";
 
-/*{}
-          {}*/
-
 function App() {
   return (
     <>
       <AppProvider>
-        <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

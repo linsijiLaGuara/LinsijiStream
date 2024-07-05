@@ -1,25 +1,27 @@
-import React, { useState } from 'react';
-
+import React, { useState } from "react";
+import "./Register.css"; 
 
 function Register() {
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
-  const [gender, setGender] = useState('');
-  const [step, setStep] = useState(1); // Estado para controlar el paso del registro
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const [gender, setGender] = useState("");
+  const [step, setStep] = useState(1);
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
-    // Aquí podrías validar el correo electrónico si es necesario
-    setStep(2); // Avanza al siguiente paso del registro
+    setStep(2);
   };
 
   const handleRegistrationSubmit = (e) => {
     e.preventDefault();
-    // Aquí podrías validar y enviar los datos de registro al servidor
-    console.log('Datos de registro enviados:', { email, username, password, gender });
-    // Redirigir al usuario a la página de inicio de sesión o a donde corresponda
+    console.log("Datos de registro enviados:", {
+      email,
+      username,
+      password,
+      gender,
+    });
   };
 
   const renderFormStep = () => {
@@ -36,7 +38,9 @@ function Register() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <button type="submit">Siguiente</button>
+          <button type="submit" className="form-button">
+            Siguiente
+          </button>
         </form>
       );
     } else if (step === 2) {
@@ -82,7 +86,9 @@ function Register() {
             <option value="female">Femenino</option>
             <option value="other">Otro</option>
           </select>
-          <button type="submit">Registrarse</button>
+          <button type="submit" className="form-button">
+            Registrarse
+          </button>
         </form>
       );
     }
@@ -93,13 +99,11 @@ function Register() {
       <div className="register-container">
         <h1>Regístrate para empezar a escuchar contenido</h1>
         {renderFormStep()}
-        {step === 1 && (
-          <button onClick={() => setStep(2)}>Siguiente</button>
-        )}
-        {step === 2 && (
-          <button onClick={() => setStep(1)}>Volver</button>
-        )}
-        <p>¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a></p>
+   
+
+        <p>
+          ¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>
+        </p>
       </div>
     </div>
   );

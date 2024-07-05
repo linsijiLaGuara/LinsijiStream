@@ -13,7 +13,6 @@ function Header() {
           Registrarte
         </Button>
       </NavLink>
-
       <NavLink to="/login">
         <Button variant="login" className="custom-login-button">
           Inicia sesión
