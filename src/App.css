@@ -80,10 +80,16 @@ body {
   border-radius: 50%;
 }
 
-.artists-section{
+.artists-section {
   padding: 20px;
   background-color: #312559;
   color: white;
   flex-grow: 1;
   margin: 30px;
+}
+.center {
+  text-align: center;
+}
+.main-content-welcome {
+  color: #ffffff;
 }

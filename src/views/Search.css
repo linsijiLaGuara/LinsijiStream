@@ -1,0 +1,25 @@
+.search-container {
+    padding: 20px;
+    color: white;
+  }
+  
+  .albums-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .album-item {
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .album-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .album-details {
+    margin-top: 10px;
+  }
+  
