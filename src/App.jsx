@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./vista/Login";
 import Register from "./vista/Resgister";
 import Home from "./vista/Home";
-import Header from "./components/Header";
 import { AppProvider } from "./Contexto/AppContext";
 import "./App.css";
 
