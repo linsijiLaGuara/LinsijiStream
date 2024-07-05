@@ -1,16 +1,15 @@
-/* MainContent.css */
 .main-content {
   padding: 20px;
   background-color: #312559;
   color: white;
-  flex-grow: 1; 
-  margin: 30px; 
+  flex-grow: 1;
+  margin: 30px;
 }
 
 .artists-title {
   font-size: 1.2em;
   margin-bottom: 20px;
-  text-align:left;
+  text-align: left;
 }
 
 .artists {
@@ -31,3 +30,11 @@
   width: 100px;
   height: 100px;
 }
+
+.icon-f {
+  margin-bottom: 3%;
+  display: flex;
+  gap: 10px;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+

@@ -33,7 +33,7 @@ function Sidebar() {
 
             <div className="library-item">
               <div>Crea tu lista</div>
-              <p className="text-crear">Es muy facil, y te de crear </p>
+              <p className="text-crear">Es muy fácil, y te echaremos una mano. </p>
             </div>
           </div>
         </div>

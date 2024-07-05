@@ -1,29 +1,33 @@
-import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { AppContext } from '../Contexto/AppContext'; // Asegúrate de que la ruta sea correcta
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import { AppContext } from "../Contexto/AppContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faReplyAll } from "@fortawesome/free-solid-svg-icons";
+import "./Login.css";
 
 export default function Login() {
   const { setUser } = useContext(AppContext);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  //const history = useHistory(); // Hook para redirigir al usuario
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    // Aquí podrías implementar la lógica para autenticar al usuario con el servidor
-    console.log('Datos de inicio de sesión:', { username, password });
-    // Simulamos una autenticación exitosa
+    console.log("Datos de inicio de sesión:", { username, password });
     setUser({ username });
-    // Redirigir al usuario a su página de perfil u otra página de la aplicación
-    history.push('/profile'); // Cambia '/profile' a la ruta que desees
+
   };
 
   return (
     <div className="login-page">
       <div className="login-container">
-        <h1>Iniciar sesión en tu cuenta</h1>
+        <FontAwesomeIcon className="icon-font" icon={faReplyAll} />
+        <h1>Inicia sesión en LinsijiStream</h1>
         <form onSubmit={handleLoginSubmit}>
-          <label htmlFor="username">Nombre de usuario o correo electrónico</label>
+          <label htmlFor="username">
+            Nombre de usuario o correo electrónico
+          </label>
           <input
             type="text"
             id="username"
@@ -41,12 +45,18 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">Iniciar sesión</button>
+          <Button
+            variant="login"
+            type="submit"
+            className="form-button"
+          >
+            Iniciar sesión
+          </Button>
         </form>
-        <p>¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link></p>
+        <p>
+          ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
+        </p>
       </div>
     </div>
   );
 }
-
-

@@ -3,21 +3,44 @@ body {
   padding: 0;
   background-color: #192253;
   font-weight: bold;
-font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .app {
   display: flex;
-  height: calc(100vh - 120px); 
+  height: calc(100vh - 120px);
   gap: 2%;
 }
 
-
-
 .main-section {
-  flex: 1; 
+  flex: 1;
   display: flex;
   flex-direction: column;
-
+}
+.icon-font {
+  font-size: 50px;
+  color: #fff;
 }
 
+.icon-fa {
+  color: #f9f9f9;
+  border-color: #262222;
+}
+.icon-fa:hover {
+  color: #3b0404;
+  border-color: #1d0221;
+}
+
+.custom-icon {
+  border: 1px solid #ffffff4e;
+  border-radius: 50%; /* Corrected from 220% to 50% for circular border */
+  padding: 5px;
+  color: #ffffff;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-icon:hover {
+  border-color: #ffffff;
+  color: #6f00ff;
+}
