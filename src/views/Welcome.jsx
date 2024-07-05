@@ -20,6 +20,10 @@ const Welcome = () => {
           <ArtistsList />
         </div>
         <div className="albums-section">
+          <div className="icon-f">
+            <FontAwesomeIcon className="icon-fa" icon={faBackward} />
+            <FontAwesomeIcon className="icon-fa" icon={faForward} />
+          </div>
           <h2>Albunes</h2>
           <AlbumList />
         </div>

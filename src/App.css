@@ -73,14 +73,20 @@ body {
   text-align: center;
 }
 
-.artist img,
-.album img {
+.artist img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
 }
 
 .artists-section {
+  padding: 20px;
+  background-color:  rgb(21, 1, 40);;
+  color: white;
+  flex-grow: 1;
+  margin: 30px;
+}
+.albums-section{
   padding: 20px;
   background-color:  rgb(21, 1, 40);;
   color: white;
