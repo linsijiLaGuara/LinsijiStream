@@ -44,7 +44,9 @@
   cursor: pointer;
   transition: color 0.3s ease;
 }
-
+.text-crear{
+  color: #ffffff;
+}
 .custom-register-button:hover {
   color: #ffffff;
 }

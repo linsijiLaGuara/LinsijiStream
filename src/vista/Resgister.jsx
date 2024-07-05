@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import "./Register.css"; 
+import Button from "react-bootstrap/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faReplyAll } from "@fortawesome/free-solid-svg-icons";
+import "./Register.css";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -38,14 +41,14 @@ function Register() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <button type="submit" className="form-button">
+          <Button variant="siguiente" type="submit" className="form-button">
             Siguiente
-          </button>
+          </Button>
         </form>
       );
     } else if (step === 2) {
       return (
-        <form onSubmit={handleRegistrationSubmit}>
+        <form onSubmit={handleRegistrationSubmit} className="lebel-input">
           <label htmlFor="username">Nombre de usuario</label>
           <input
             type="text"
@@ -80,15 +83,18 @@ function Register() {
             value={gender}
             onChange={(e) => setGender(e.target.value)}
             required
+            className="selections"
           >
-            <option value="">Selecciona</option>
+            <option value="" hidden>
+              Selecciona
+            </option>
             <option value="male">Masculino</option>
             <option value="female">Femenino</option>
             <option value="other">Otro</option>
           </select>
-          <button type="submit" className="form-button">
+          <Button variant="siguiente" type="submit" className="form-button">
             Registrarse
-          </button>
+          </Button>
         </form>
       );
     }
@@ -97,10 +103,9 @@ function Register() {
   return (
     <div className="register-page">
       <div className="register-container">
+        <FontAwesomeIcon className="icon-font" icon={faReplyAll} />
         <h1>Regístrate para empezar a escuchar contenido</h1>
         {renderFormStep()}
-   
-
         <p>
           ¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a>
         </p>

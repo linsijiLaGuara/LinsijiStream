@@ -31,32 +31,34 @@ form {
 label {
   font-size: 14px;
   color: #ffffff;
-  text-align: center;
 }
 
 input,
 select {
   padding: 10px;
-  border: 1px solid #5E5E5E;
+  border: 1px solid #5e5e5e;
   border-radius: 5px;
   font-size: 14px;
   background-color: #192253;
   text-align: center;
 }
-
+.selections {
+  color: #ffffff;
+}
 input:focus,
 select:focus {
-  border-color: #5E5E5E;
+  border-color: #5e5e5e;
   outline: none;
 }
-
+.lebel-input {
+  text-align: left;
+}
 .form-button {
   background-color: #312559;
   color: #fff;
   border: none;
-  padding: 10px;
-  border-radius: 5px;
-  
+  padding: 10px 20px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
@@ -92,4 +94,8 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+.icon-font {
+  font-size: 50px;
+  color: #fff;
 }

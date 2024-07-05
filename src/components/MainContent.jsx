@@ -16,7 +16,6 @@ function MainContent() {
         <Artist name="Dua Lipa" image={duaLipa} />
         <Artist name="Daddy Yankee" image={daddy_yankee} />
         <Artist name="Romeo Santos" image={Romeo_Santos} />
-        {/* Agrega más artistas según sea necesario */}
       </div>
     </div>
   );
