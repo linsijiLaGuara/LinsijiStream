@@ -16,7 +16,7 @@
 .library,
 .empty-menu {
   width: 95%;
-  background-color: #312559;
+  background-color:  rgb(21, 1, 40);;
   padding: 20px;
   border-radius: 20px;
 
@@ -34,7 +34,7 @@
 }
 
 .library-item {
-  background-color: #692c60;
+  background-color: #4b013d;
   border-radius: 10px;
   padding: 2%;
 }
