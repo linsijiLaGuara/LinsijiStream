@@ -1,0 +1,55 @@
+
+
+[
+    {
+      "nombre_album": "Changes",
+      "artist_name": "Justin Bieber",
+      "url_image": "https://i1.sndcdn.com/artworks-vrfhubuoh5WkvW82-6qKmOA-t500x500.jpg"
+    },
+    {
+      "nombre_album": "folklore",
+      "artist_name": "Taylor Swift",
+      "url_image": "https://observer.case.edu/wp-content/uploads/2021/02/Eo4M55KXEAI6OGV-900x900.jpg"
+    },
+    {
+      "nombre_album": "Future Nostalgia",
+      "artist_name": "Dua Lipa",
+      "url_image": "https://musicland.cl/wp-content/uploads/2020/04/DUALIPAFUTURE-800x800.jpg"
+    },
+    {
+      "nombre_album": "Positions",
+      "artist_name": "Ariana Grande",
+      "url_image": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a0/Ariana_Grande_-_Positions.png/220px-Ariana_Grande_-_Positions.png"
+    },
+    {
+      "nombre_album": "After Hours",
+      "artist_name": "The Weeknd",
+      "url_image": "https://www.rockandpop.cl/wp-content/uploads/2021/03/After-Hours-Aniversario-2.jpeg"
+    },
+    {
+      "nombre_album": "Billie Eilish",
+      "artist_name": "Billie Eilish",
+      "url_image": "https://elinsular.cl/wp-content/uploads/2021/04/Billie-Eilish-da-a-conocer-fecha-de-su-segundo-album.jpg"
+    },
+    {
+      "nombre_album": "Map of the Soul: 7",
+      "artist_name": "BTS",
+      "url_image": "https://www.harrisonsrecords.cl/wp-content/uploads/2023/09/MAP-OF-THE-SOUL-7.jpg"
+    },
+    {
+      "nombre_album": "Scorpion",
+      "artist_name": "Drake",
+      "url_image": "https://media.pitchfork.com/photos/649dbfb832ef0bc7a4f1ac4f/master/w_1280%2Cc_limit/Drake-Scorpion.jpg"
+    },
+    {
+      "nombre_album": "El Último Tour Del Mundo",
+      "artist_name": "Bad Bunny",
+      "url_image": "https://i.ytimg.com/vi/A1UNyDBhtwM/hq720.jpg"
+    },
+    {
+      "nombre_album": "Planet Her",
+      "artist_name": "Doja Cat",
+      "url_image": "https://images.genius.com/9febbde70f3c7cabf20cafa6e16a2077.820x360x1.jpg"
+    }
+  ]
+  

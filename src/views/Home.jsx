@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppContext } from "../Contexto/AppContext";
+import { AppContext } from "../contexts/AppContext";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import MainContent from "../components/MainContent";

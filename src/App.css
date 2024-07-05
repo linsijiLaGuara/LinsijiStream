@@ -44,3 +44,46 @@ body {
   border-color: #ffffff;
   color: #6f00ff;
 }
+
+.home-container {
+  display: flex;
+}
+
+.Sidebarwolcomen {
+  width: 250px;
+  background-color: #3a3a3a;
+  color: white;
+  padding: 20px;
+}
+
+.main-content-welcome {
+  flex: 1;
+  padding: 20px;
+}
+
+.artist-list,
+.album-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.artist,
+.album {
+  margin: 10px;
+  text-align: center;
+}
+
+.artist img,
+.album img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.artists-section{
+  padding: 20px;
+  background-color: #312559;
+  color: white;
+  flex-grow: 1;
+  margin: 30px;
+}

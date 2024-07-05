@@ -1,0 +1,52 @@
+[
+  {
+    "artist_name": "Bad Bunny",
+    "verify": true,
+    "url_image": "https://www.billboard.com/wp-content/uploads/2023/10/bad-bunny-press-2023-billboard-1548.jpg"
+  },
+  {
+    "artist_name": "Taylor Swift",
+    "verify": true,
+    "url_image": "https://www.billboard.com/wp-content/uploads/2023/11/03-Taylor-Swift-_-The-Eras-Tour-Buenos-Aires-Argentina-billboard-espanol-1548.jpg"
+  },
+  {
+    "artist_name": "Drake",
+    "verify": true,
+    "url_image": "https://vz.cnwimg.com/wp-content/uploads/2020/02/drake-net-worth.jpg"
+  },
+  {
+    "artist_name": "Billie Eilish",
+    "verify": true,
+    "url_image": "https://media.vogue.es/photos/609d3714fae5608e730970ed/2:3/w_2560%2Cc_limit/Billie-Eilish-Happier-Than-Ever.jpeg"
+  },
+  {
+    "artist_name": "BTS",
+    "verify": true,
+    "url_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSacoACeXMMwKaNP71kQzmfj63F0rGawNk_8w&s"
+  },
+  {
+    "artist_name": "Ariana Grande",
+    "verify": true,
+    "url_image": "https://media.vogue.mx/photos/5e9f0aef8966aa000859aac6/1:1/w_2264,h_2264,c_limit/como-hacer-el-peinado-de-ariana-grande.jpg"
+  },
+  {
+    "artist_name": "The Weeknd",
+    "verify": true,
+    "url_image": "https://www.la-razon.com/wp-content/uploads/2023/05/15/20/The_Weeknd.jpg"
+  },
+  {
+    "artist_name": "Dua Lipa",
+    "verify": true,
+    "url_image": "https://es.rollingstone.com/wp-content/uploads/2024/04/Que-sabemos-de-Radical-Optimism-el-proximo-album-de-Dua-Lipa.jpg"
+  },
+  {
+    "artist_name": "Justin Bieber",
+    "verify": true,
+    "url_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Justin_Bieber_in_2015.jpg/800px-Justin_Bieber_in_2015.jpg"
+  },
+  {
+    "artist_name": "Doja Cat",
+    "verify": true,
+    "url_image": "https://www.elheraldo.co/sites/default/files/styles/widht_760/public/articulo/2023/08/05/h3gmk2rwkbd7jp3wwoh4ln2bpq.png"
+  }
+]

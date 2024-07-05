@@ -16,6 +16,7 @@
 .artist-name {
   margin-top: 10px;
   font-size: 0.9em;
+  color: white;
 }
 
 @media (max-width: 768px) {
