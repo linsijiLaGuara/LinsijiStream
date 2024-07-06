@@ -1,6 +1,6 @@
 .main-content {
   padding: 20px;
-  background-color:  rgb(21, 1, 40);;
+  background-color: rgb(21, 1, 40);
   color: white;
   flex-grow: 1;
   margin: 30px;
@@ -30,11 +30,3 @@
   width: 100px;
   height: 100px;
 }
-
-.icon-f {
-  margin-bottom: 3%;
-  display: flex;
-  gap: 10px;
-  transition: border-color 0.3s ease, color 0.3s ease;
-}
-
