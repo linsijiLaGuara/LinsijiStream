@@ -31,7 +31,10 @@ body {
   color: #3b0404;
   border-color: #1d0221;
 }
-
+.icon-f {
+  display: flex;
+  gap: 5px;
+}
 .custom-icon {
   border: 1px solid #ffffff4e;
   border-radius: 50%; /* Corrected from 220% to 50% for circular border */
@@ -47,6 +50,7 @@ body {
 
 .home-container {
   display: flex;
+  margin-top: 3%;
 }
 
 .Sidebarwolcomen {
@@ -60,7 +64,10 @@ body {
   flex: 1;
   padding: 20px;
 }
-
+.main-content-search {
+  flex: 1;
+  padding: 20px;
+}
 .artist-list,
 .album-list {
   display: flex;

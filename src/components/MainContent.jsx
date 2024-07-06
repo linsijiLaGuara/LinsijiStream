@@ -1,5 +1,4 @@
 import React from "react";
-
 import Artist from "./Artist";
 import "./MainContent.css";
 import shakira from "../assets/img/shakira.jpeg";

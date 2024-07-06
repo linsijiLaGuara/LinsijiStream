@@ -5,16 +5,15 @@
 }
 
 .sidebar-container {
-  width: 250px; 
-
+  width: 200px;
 }
 
 .search-container {
   padding: 20px;
   color: white;
   flex-grow: 1;
- background-color: rgb(21, 1, 40);
-margin-right: 5%;
+  background-color: rgb(21, 1, 40);
+  margin-right: 5%;
 }
 
 .albums-list {

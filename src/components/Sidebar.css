@@ -29,7 +29,7 @@
 }
 
 .logo {
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-bottom: 20px;
 }
 
@@ -62,10 +62,7 @@ margin-bottom: 3%;
     border-radius: 10px; /
   }
 
-  .logo {
-    font-size: 1.2em; 
-    margin-bottom: 10px; 
-  }
+
 
   .library-item {
     padding: 1%; 

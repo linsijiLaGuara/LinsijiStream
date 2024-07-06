@@ -1,7 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
-import Sidebarwolcomen from "../components/Sidebarwolcomen";
+
+import Sidebarwolcomen from "../components/SidebarWelcome";
 import ArtistsList from "../components/ArtistList";
 import AlbumList from "../components/AlbumList";
 
