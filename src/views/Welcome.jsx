@@ -13,7 +13,7 @@ const Welcome = () => {
       <div className="main-content-welcome">
         <h1 className="center">Bienvenido</h1>
         <div className="artists-section">
-          <div className="icon-f">
+        <div className="icon-f">
             <FontAwesomeIcon className="icon-fa" icon={faBackward} />
             <FontAwesomeIcon className="icon-fa" icon={faForward} />
           </div>
@@ -21,7 +21,7 @@ const Welcome = () => {
           <ArtistsList />
         </div>
         <div className="albums-section">
-          <div className="icon-f">
+        <div className="icon-f">
             <FontAwesomeIcon className="icon-fa" icon={faBackward} />
             <FontAwesomeIcon className="icon-fa" icon={faForward} />
           </div>

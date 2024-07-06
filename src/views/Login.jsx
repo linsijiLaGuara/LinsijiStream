@@ -1,22 +1,18 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import { AppContext } from "../contexts/AppContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReplyAll } from "@fortawesome/free-solid-svg-icons";
 import "./Login.css";
+import useLogin from "../hooks/useLogin";
 
 export default function Login() {
-  const { setUser } = useContext(AppContext);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const { username, setUsername, password, setPassword, error, handleLogin } =
+    useLogin();
 
-
-  const handleLoginSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Datos de inicio de sesión:", { username, password });
-    setUser({ username });
-
+    handleLogin();
   };
 
   return (
@@ -24,7 +20,7 @@ export default function Login() {
       <div className="login-container">
         <FontAwesomeIcon className="icon-font" icon={faReplyAll} />
         <h1>Inicia sesión en LinsijiStream</h1>
-        <form onSubmit={handleLoginSubmit}>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="username">
             Nombre de usuario o correo electrónico
           </label>
@@ -45,11 +41,8 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <Button
-            variant="login"
-            type="submit"
-            className="form-button"
-          >
+          {error && <p className="error-message">{error}</p>}
+          <Button variant="login" type="submit" className="form-button">
             Iniciar sesión
           </Button>
         </form>
