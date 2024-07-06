@@ -1,9 +1,7 @@
-import React, { useContext, useEffect } from "react";
-import { AppContext } from "../contexts/AppContext";
+import React, { useEffect } from "react";
+import IconsPly from "./Icons";
 import useFetchAlbums from "../hooks/useFetchAlbums";
-import  "./AlbumList.css"
-
-
+import "./AlbumList.css";
 
 const AlbumList = () => {
   const { albums, fetchAlbums } = useFetchAlbums();
@@ -14,9 +12,14 @@ const AlbumList = () => {
 
   return (
     <div className="album-list">
-      {albums.map(album => (
+      {albums.map((album) => (
         <div key={album.id} className="album">
-          <img src={album.url_image} alt={album.nombre_album} />
+          <img
+            className="album-image"
+            src={album.url_image}
+            alt={album.nombre_album}
+          />
+          <IconsPly />
           <h5>{album.nombre_album}</h5>
           <p>{album.artist_name}</p>
         </div>

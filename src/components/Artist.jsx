@@ -1,24 +1,12 @@
 import React, { useState } from "react";
+import IconsPly from "./Icons";
 import "./Artist.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlay, faCirclePause } from "@fortawesome/free-solid-svg-icons";
 
 function Artist({ name, image }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handleIconClick = () => {
-    setIsPlaying(!isPlaying);
-  };
-
   return (
     <div className="artist">
       <img src={image} alt={name} className="artist-image" />
-      <div className="icon-container" onClick={handleIconClick}>
-        <FontAwesomeIcon
-          icon={isPlaying ? faCirclePause : faCirclePlay}
-          className="custom-icon"
-        />
-      </div>
+      <IconsPly />
       <div className="artist-name">{name}</div>
     </div>
   );

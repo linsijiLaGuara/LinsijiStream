@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import albums_mockup from "../mockupServices/albumList.json";
 import "./Search.css";
 import Sidebarwolcomen from "../components/Sidebarwolcomen";
+import IconsPly from "../components/Icons";
 
 const Search = () => {
   const [albums, setAlbums] = useState([]);
@@ -23,6 +24,7 @@ const Search = () => {
                 alt={album.nombre_album}
                 className="album-image"
               />
+              <IconsPly />
               <div className="album-details">
                 <h2>{album.nombre_album}</h2>
                 <p>{album.artist_name}</p>

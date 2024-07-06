@@ -81,14 +81,14 @@ body {
 
 .artists-section {
   padding: 20px;
-  background-color:  rgb(21, 1, 40);;
+  background-color: rgb(21, 1, 40);
   color: white;
   flex-grow: 1;
   margin: 30px;
 }
-.albums-section{
+.albums-section {
   padding: 20px;
-  background-color:  rgb(21, 1, 40);;
+  background-color: rgb(21, 1, 40);
   color: white;
   flex-grow: 1;
   margin: 30px;
@@ -98,4 +98,15 @@ body {
 }
 .main-content-welcome {
   color: #ffffff;
+}
+.icon-container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-top: -20px;
+  cursor: pointer;
+}
+
+.custom-icon {
+  font-size: 24px;
 }
