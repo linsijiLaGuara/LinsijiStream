@@ -1,28 +1,11 @@
-import { useState, useContext } from "react";
-import { AppContext } from "../contexts/AppContext";
-import loginMockup from "../mockupServices/loginMockup.json";
+import { useState } from "react";
 
 const useLogin = () => {
-  const { setUser } = useContext(AppContext);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [user, setUser] = useState(null);
 
-  const handleLogin = () => {
-    const {
-      username: mockUsername,
-      password: mockPassword,
-      token,
-    } = loginMockup;
-    if (username === mockUsername && password === mockPassword) {
-      setUser({ username, token });
-      setError(null);
-    } else {
-      setError("Nombre de usuario o contraseña incorrectos.");
-    }
-  };
+  const setUseLogin = (usuario) => setUser(usuario);
 
-  return { username, setUsername, password, setPassword, error, handleLogin };
+  return { getDeveloper: user, setUseLogin };
 };
 
 export default useLogin;
