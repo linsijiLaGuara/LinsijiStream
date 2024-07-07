@@ -46,7 +46,7 @@ El botón de reproducción de música aún no está funcionando correctamente. S
 ---
 
 ## nota:
-solo es un diseño no se puede ver recorriendo  por la pestaña cambiadola : 
+solo es un diseño se puede ver recorriendo las pestaña : 
  1.   /
  2. /register
  3. /login
