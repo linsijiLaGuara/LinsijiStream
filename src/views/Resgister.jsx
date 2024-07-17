@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReplyAll } from "@fortawesome/free-solid-svg-icons";
@@ -6,26 +6,25 @@ import "./Register.css";
 import useRegister from "../hooks/useRegister";
 
 function Register() {
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
-  const [gender, setGender] = useState("");
   const [step, setStep] = useState(1);
+  const {
+    email,
+    setEmail,
+    username,
+    setUsername,
+    password,
+    setPassword,
+    repeatPassword,
+    setRepeatPassword,
+    gender,
+    setGender,
+    error,
+    handleRegistration,
+  } = useRegister();
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     setStep(2);
-  };
-
-  const handleRegistrationSubmit = (e) => {
-    e.preventDefault();
-    console.log("Datos de registro enviados:", {
-      email,
-      username,
-      password,
-      gender,
-    });
   };
 
   const renderFormStep = () => {
@@ -49,7 +48,13 @@ function Register() {
       );
     } else if (step === 2) {
       return (
-        <form onSubmit={handleRegistrationSubmit} className="lebel-input">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleRegistration();
+          }}
+          className="lebel-input"
+        >
           <label htmlFor="username">Nombre de usuario</label>
           <input
             type="text"
@@ -93,6 +98,7 @@ function Register() {
             <option value="female">Femenino</option>
             <option value="other">Otro</option>
           </select>
+          {error && <p className="error-message">{error}</p>}
           <Button variant="siguiente" type="submit" className="form-button">
             Registrarse
           </Button>

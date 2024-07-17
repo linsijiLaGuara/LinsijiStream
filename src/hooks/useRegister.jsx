@@ -1,5 +1,5 @@
-import { useState } from "react";
-import registerMockup from "../mockupServices/registerMockup.json";
+import { useState, useContext } from "react";
+import { AppContext } from "../contexts/AppContext";
 
 const useRegister = () => {
   const [email, setEmail] = useState("");
@@ -8,20 +8,31 @@ const useRegister = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [gender, setGender] = useState("");
   const [error, setError] = useState(null);
+  const { handleRegisterSubmit } = useContext(AppContext);
 
-  const handleRegistration = () => {
-    const { email: mockEmail, username: mockUsername } = registerMockup;
-    if (email === mockEmail && username === mockUsername) {
-      setError("El correo electrónico o el nombre de usuario ya están en uso.");
-    } else {
-      setError(null);
+  const handleRegistration = async () => {
+    if (!email || !username || !password || !repeatPassword || !gender) {
+      setError("Todos los campos son obligatorios.");
+      return;
+    }
 
-      console.log("Datos de registro enviados:", {
-        email,
-        username,
-        password,
-        gender,
-      });
+    if (password !== repeatPassword) {
+      setError("Las contraseñas no coinciden.");
+      return;
+    }
+
+    const userData = {
+      email,
+      username,
+      password,
+      gender,
+    };
+
+    try {
+      await handleRegisterSubmit(userData);
+    } catch (error) {
+      console.error("Register error:", error);
+      setError("Error al registrar el usuario. Verifique los datos.");
     }
   };
 
