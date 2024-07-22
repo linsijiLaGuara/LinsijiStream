@@ -81,7 +81,8 @@ export const AppProvider = ({ children }) => {
   const handleRegisterSubmit = async (userData) => {
     try {
       await axios.post(`${VITE_SERVER_URL_LOCAL}/api/users/register`, userData);
-      window.alert("Usuario registrado con éxito 😀.");
+
+      window.alert("Usuario registrado con éxito.");
       window.location.href = "/login";
     } catch (error) {
       console.error("Register error:", error);

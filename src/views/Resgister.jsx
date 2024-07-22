@@ -10,14 +10,14 @@ function Register() {
   const {
     email,
     setEmail,
-    username,
-    setUsername,
+    nombre,
+    setNombre,
     password,
     setPassword,
     repeatPassword,
     setRepeatPassword,
-    gender,
-    setGender,
+    genero,
+    setGenero,
     error,
     handleRegistration,
   } = useRegister();
@@ -55,13 +55,13 @@ function Register() {
           }}
           className="lebel-input"
         >
-          <label htmlFor="username">Nombre de usuario</label>
+          <label htmlFor="nombre">Nombre de usuario</label>
           <input
             type="text"
-            id="username"
-            name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            id="nombre"
+            name="nombre"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
             required
           />
           <label htmlFor="password">Contraseña</label>
@@ -82,21 +82,21 @@ function Register() {
             onChange={(e) => setRepeatPassword(e.target.value)}
             required
           />
-          <label htmlFor="gender">Género</label>
+          <label htmlFor="genero">Género</label>
           <select
-            id="gender"
-            name="gender"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
+            id="genero"
+            name="genero"
+            value={genero}
+            onChange={(e) => setGenero(e.target.value)}
             required
             className="selections"
           >
             <option value="" hidden>
               Selecciona
             </option>
-            <option value="male">Masculino</option>
-            <option value="female">Femenino</option>
-            <option value="other">Otro</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Otro">Otro</option>
           </select>
           {error && <p className="error-message">{error}</p>}
           <Button variant="siguiente" type="submit" className="form-button">

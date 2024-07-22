@@ -3,15 +3,15 @@ import { AppContext } from "../contexts/AppContext";
 
 const useRegister = () => {
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
+  const [nombre, setNombre] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const [gender, setGender] = useState("");
+  const [genero, setGenero] = useState("");
   const [error, setError] = useState(null);
   const { handleRegisterSubmit } = useContext(AppContext);
 
   const handleRegistration = async () => {
-    if (!email || !username || !password || !repeatPassword || !gender) {
+    if (!email || !nombre || !password || !repeatPassword || !genero) {
       setError("Todos los campos son obligatorios.");
       return;
     }
@@ -23,9 +23,9 @@ const useRegister = () => {
 
     const userData = {
       email,
-      username,
+      nombre,
       password,
-      gender,
+      genero,
     };
 
     try {
@@ -39,14 +39,14 @@ const useRegister = () => {
   return {
     email,
     setEmail,
-    username,
-    setUsername,
+    nombre,
+    setNombre,
     password,
     setPassword,
     repeatPassword,
     setRepeatPassword,
-    gender,
-    setGender,
+    genero,
+    setGenero,
     error,
     handleRegistration,
   };
