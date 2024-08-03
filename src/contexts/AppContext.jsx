@@ -1,3 +1,4 @@
+// AppContext.jsx
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 const { VITE_SERVER_URL_LOCAL } = import.meta.env;
@@ -95,11 +96,14 @@ export const AppProvider = ({ children }) => {
 
   const fetchArtists = async () => {
     try {
-      const response = await axios.get(`${VITE_SERVER_URL_LOCAL}/api/users/welcome`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `${VITE_SERVER_URL_LOCAL}/api/users/welcome`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setArtists(response.data);
     } catch (error) {
       console.error("Error fetching artists:", error);
@@ -110,7 +114,31 @@ export const AppProvider = ({ children }) => {
     if (isLoggedIn) {
       fetchArtists();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoggedIn]);
+
+  const fetchAlbums = async () => {
+    try {
+      const response = await axios.get(
+        `${VITE_SERVER_URL_LOCAL}/api/users/album`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching albums:", error);
+      throw error;
+    }
+  };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchAlbums().then(data => setArtists(data)).catch(error => console.error(error));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn]);
 
   return (
@@ -124,6 +152,7 @@ export const AppProvider = ({ children }) => {
         handleRegisterSubmit,
         artists,
         fetchArtists,
+        fetchAlbums,
       }}
     >
       {children}

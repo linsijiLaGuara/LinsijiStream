@@ -1,13 +1,15 @@
-import { useState } from "react";
-import albums_mockup from "../mockupServices/albumList.json";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "../contexts/AppContext";
+
 const useFetchAlbums = () => {
+  const { fetchAlbums, isLoggedIn } = useContext(AppContext);
   const [albums, setAlbums] = useState([]);
 
-  const fetchAlbums = async () => {
-    // Lógica para obtener los álbumes
-    //const data = await fetch('/api/albums').then(res => res.json());
-    setAlbums(albums_mockup);
-  };
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchAlbums().then(data => setAlbums(data));
+    }
+  }, [isLoggedIn, fetchAlbums]);
 
   return { albums, fetchAlbums };
 };

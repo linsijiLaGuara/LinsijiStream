@@ -8,19 +8,15 @@ const AlbumList = () => {
 
   useEffect(() => {
     fetchAlbums();
-  }, []);
+  }, [fetchAlbums]);
 
   return (
     <div className="album-list">
       {albums.map((album) => (
         <div key={album.id} className="album">
-          <img
-            className="album-image"
-            src={album.url_image}
-            alt={album.nombre_album}
-          />
+          <img className="album-image" src={album.img} alt={album.nombre} />
           <IconsPly />
-          <h5>{album.nombre_album}</h5>
+          <h5>{album.nombre}</h5>
           <p>{album.artist_name}</p>
         </div>
       ))}
