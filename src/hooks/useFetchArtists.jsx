@@ -1,17 +1,14 @@
-import { useState } from "react";
-import artistas_mockup from '../mockupServices/arlist.json';
-
-
-// Lógica para obtener los artistas
-//const data = await fetch("/api/artists").then((res) => res.json());
-//setArtists(data);
+import { useContext, useEffect } from "react";
+import { AppContext } from "../contexts/AppContext";
 
 const useFetchArtists = () => {
-  const [artists, setArtists] = useState([]);
+  const { artists, fetchArtists, isLoggedIn } = useContext(AppContext);
 
-  const fetchArtists = () => {
-    setArtists(artistas_mockup);
-  };
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchArtists();
+    }
+  }, [isLoggedIn, fetchArtists]);
 
   return { artists, fetchArtists };
 };

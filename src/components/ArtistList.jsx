@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import useFetchArtists from "../hooks/useFetchArtists"; 
+import useFetchArtists from "../hooks/useFetchArtists";
 import Artist from "./Artist";
-import "./ArtistsList.css"; 
+import "./ArtistsList.css";
 
 const ArtistsList = ({ setCurrentTrack }) => {
   const { artists, fetchArtists } = useFetchArtists();
@@ -15,7 +15,7 @@ const ArtistsList = ({ setCurrentTrack }) => {
   }
 
   const handleArtistClick = (artist) => {
-    const track = { url: artist.url_audio, name: artist.artist_name }; // Asume que cada artista tiene un campo url_audio
+    const track = { url: artist.url_audio, name: artist.nombre_artista }; // Asume que cada artista tiene un campo url_audio
     setCurrentTrack(track);
   };
 
@@ -23,7 +23,7 @@ const ArtistsList = ({ setCurrentTrack }) => {
     <div className="artists-list">
       {artists.map((artist, index) => (
         <div key={index} onClick={() => handleArtistClick(artist)}>
-          <Artist name={artist.artist_name} image={artist.url_image} />
+          <Artist name={artist.nombre_artista} image={artist.imagen} />
         </div>
       ))}
     </div>

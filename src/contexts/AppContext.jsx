@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 const { VITE_SERVER_URL_LOCAL } = import.meta.env;
 
@@ -18,7 +18,8 @@ export const AppProvider = ({ children }) => {
     localStorage.getItem("token") ? localStorage.getItem("token") : null
   );
 
-  const [isLoggedIn, setisLoggedIn] = useState(false);
+  const [isLoggedIn, setisLoggedIn] = useState(!!localStorage.getItem("token"));
+  const [artists, setArtists] = useState([]);
 
   const logIn = async (userData) => {
     const tokenJson = await axios.post(
@@ -30,9 +31,11 @@ export const AppProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    setTimeout(() => {
-      setisLoggedIn(false);
-    }, 3000);
+    setisLoggedIn(false);
+    localStorage.removeItem("token");
+    localStorage.removeItem("session");
+    setToken(null);
+    setUserSession({ email: "", nombre: "" });
   };
 
   const handleLoginSubmit = async (event) => {
@@ -90,6 +93,26 @@ export const AppProvider = ({ children }) => {
     }
   };
 
+  const fetchArtists = async () => {
+    try {
+      const response = await axios.get(`${VITE_SERVER_URL_LOCAL}/api/users/welcome`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setArtists(response.data);
+    } catch (error) {
+      console.error("Error fetching artists:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchArtists();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoggedIn]);
+
   return (
     <AppContext.Provider
       value={{
@@ -99,6 +122,8 @@ export const AppProvider = ({ children }) => {
         logIn,
         handleLoginSubmit,
         handleRegisterSubmit,
+        artists,
+        fetchArtists,
       }}
     >
       {children}
