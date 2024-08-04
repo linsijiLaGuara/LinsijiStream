@@ -1,83 +1,66 @@
-// Search.jsx
-import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
 import "./Search.css";
 import Sidebarwelcomen from "../components/SidebarWelcome";
 import IconsPly from "../components/Icons";
 import useFetchArtistSearch from "../hooks/useFetchArtistSearch";
 
 const Search = ({ setCurrentTrack }) => {
-  const { searchResults, searchArtists, isLoading, albums, loadAlbums } =
-    useFetchArtistSearch();
+  const { searchResults, searchArtists, isLoading } = useFetchArtistSearch();
   const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    loadAlbums();
-  }, [loadAlbums]);
-
-  const handleSearch = (event) => {
-    setQuery(event.target.value);
-    if (event.target.value.trim()) {
-      searchArtists(event.target.value);
+  // Llama a la búsqueda solo cuando se haga clic en el botón
+  const handleSearchClick = () => {
+    if (query.trim()) {
+      searchArtists(query);
     }
   };
 
+  const handleArtistSearch = (event) => {
+    setQuery(event.target.value);
+  };
+
   return (
-    <>
-      <div className="search-page">
-        <Sidebarwelcomen />
-        <div className="main-content-search">
-          <h1>Buscar</h1>
-          <div className="search-container">
-            <input
-              type="text"
-              value={query}
-              onChange={handleSearch}
-              placeholder="Buscar artista..."
-              className="search-input"
-            />
-            <div className="albums-list">
+    <div className="search-page">
+      <Sidebarwelcomen />
+      <div className="main-content-search">
+        <h1>Buscar</h1>
+        <div className="search-container">
+          <input
+            type="text"
+            value={query}
+            onChange={handleArtistSearch}
+            placeholder="Buscar artista..."
+            className="search-input"
+          />
+          <button onClick={handleSearchClick} className="search-button">
+            Buscar
+          </button>
+          <div className="results-container">
+            <div className="artists-list">
               {isLoading ? (
                 <p>Loading...</p>
-              ) : query ? (
+              ) : Array.isArray(searchResults) && searchResults.length > 0 ? (
                 searchResults.map((artist, index) => (
                   <div key={index} className="artist-item">
                     <img
-                      src={artist.imagen}
-                      alt={artist.nombre_artista}
-                      className="artist-image"
-                    />{" "}
+                      src={artist.img}
+                      alt={artist.nombre}
+                      className="album-image"
+                    />
                     <IconsPly />
                     <div className="artist-details">
-                      <p>{artist.nombre_artista}</p>
+                      <p>{artist.nombre}</p>
                     </div>
                   </div>
                 ))
               ) : (
-                albums.map((album, index) => (
-                  <div
-                    key={index}
-                    className="album-item"
-                    onClick={() => setCurrentTrack(album.track)}
-                  >
-                    <img
-                      src={album.img}
-                      alt={album.nombre}
-                      className="album-image"
-                    />
-                    <div className="album-details">
-                      <IconsPly />
-                      <h2>{album.nombre}</h2>
-                    </div>
-                  </div>
-                ))
+                <p>No se encontraron resultados.</p>
               )}
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

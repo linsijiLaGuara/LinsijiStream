@@ -10,7 +10,7 @@ const useFetchArtists = () => {
     }
   }, [isLoggedIn, fetchArtists]);
 
-  return { artists, fetchArtists };
+  return { artists,isLoading: false, fetchArtists };
 };
 
 export default useFetchArtists;

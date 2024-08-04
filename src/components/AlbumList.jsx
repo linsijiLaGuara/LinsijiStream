@@ -4,22 +4,29 @@ import useFetchAlbums from "../hooks/useFetchAlbums";
 import "./AlbumList.css";
 
 const AlbumList = () => {
-  const { albums, fetchAlbums } = useFetchAlbums();
+  const { albums, isLoading, fetchAlbums } = useFetchAlbums();
 
-  useEffect(() => {
-    fetchAlbums();
-  }, [fetchAlbums]);
+
+  if (isLoading) {
+    return <p>Loading...</p>; 
+  }
 
   return (
     <div className="album-list">
-      {albums.map((album) => (
-        <div key={album.id} className="album">
-          <img className="album-image" src={album.img} alt={album.nombre} />
-          <IconsPly />
-          <h5>{album.nombre}</h5>
-          <p>{album.artist_name}</p>
-        </div>
-      ))}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : albums && albums.length === 0 ? (
+        <p>No albums found</p>
+      ) : (
+        albums.map((album) => (
+          <div key={album.id} className="album">
+            <img className="album-image" src={album.img} alt={album.nombre} />
+            <IconsPly />
+            <h5>{album.nombre}</h5>
+            <p>{album.artist_name}</p>
+          </div>
+        ))
+      )}
     </div>
   );
 };

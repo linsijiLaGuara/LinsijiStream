@@ -1,5 +1,5 @@
 // AppContext.jsx
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useCallback } from "react";
 import axios from "axios";
 const { VITE_SERVER_URL_LOCAL } = import.meta.env;
 
@@ -21,6 +21,9 @@ export const AppProvider = ({ children }) => {
 
   const [isLoggedIn, setisLoggedIn] = useState(!!localStorage.getItem("token"));
   const [artists, setArtists] = useState([]);
+  const [albums, setAlbums] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const logIn = async (userData) => {
     const tokenJson = await axios.post(
@@ -93,8 +96,7 @@ export const AppProvider = ({ children }) => {
       throw new Error("Error al registrar el usuario. Verifique los datos.");
     }
   };
-
-  const fetchArtists = async () => {
+  const fetchUserWelcome = async () => {
     try {
       const response = await axios.get(
         `${VITE_SERVER_URL_LOCAL}/api/users/welcome`,
@@ -104,36 +106,73 @@ export const AppProvider = ({ children }) => {
           },
         }
       );
-      setArtists(response.data);
-    } catch (error) {
-      console.error("Error fetching artists:", error);
-    }
-  };
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      fetchArtists();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoggedIn]);
-
-  const fetchAlbums = async () => {
-    try {
-      const response = await axios.get(
-        `${VITE_SERVER_URL_LOCAL}/api/users/album`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-    
       return response.data;
     } catch (error) {
-      console.error("Error fetching albums:", error);
+      console.error("Error fetching userWelcome:", error);
       throw error;
     }
   };
+
+  const fetchArtists = useCallback(
+    async (page) => {
+      setIsLoading(true);
+      try {
+        const response = await axios.get(
+          `${VITE_SERVER_URL_LOCAL}/api/users/artist?page=${page}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setArtists(response.data);
+        setIsLoading(false);
+        return response.data;
+      } catch (error) {
+        console.error("Error fetching albums:", error);
+        setIsLoading(false);
+        throw error;
+      }
+    },
+    [token]
+  );
+  const fetchAlbums = useCallback(
+    async (page) => {
+      setIsLoading(true);
+      try {
+        const response = await axios.get(
+          `${VITE_SERVER_URL_LOCAL}/api/users/album?page=${page}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setAlbums(response.data);
+        setIsLoading(false);
+        return response.data;
+      } catch (error) {
+        console.error("Error fetching albums:", error);
+        setIsLoading(false);
+        throw error;
+      }
+    },
+    [token]
+  );
+
+  const nextPage = () =>
+    setCurrentPage((prev) => {
+      const nextPage = prev + 1;
+      fetchAlbums(nextPage);
+      return nextPage;
+    });
+
+  const prevPage = () =>
+    setCurrentPage((prev) => {
+      const prevPage = prev > 0 ? prev - 1 : 0;
+      fetchAlbums(prevPage);
+      return prevPage;
+    });
 
   const searchArtistsByName = async (query) => {
     try {
@@ -152,9 +191,65 @@ export const AppProvider = ({ children }) => {
     }
   };
 
+  const searchAlbumsByName = async (query) => {
+    try {
+      const response = await axios.get(
+        `${VITE_SERVER_URL_LOCAL}/api/users/searchAlbum?query=${query}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error searching albums:", error);
+      throw error;
+    }
+  };
+  const searchAlbumsByArtist = async (artistName) => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(
+        `${
+          import.meta.env.VITE_SERVER_URL_LOCAL
+        }/api/users/searchAlbumsByArtist?name=${artistName}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setAlbums(response.data);
+      return response.data;
+    } catch (error) {
+      console.error("Error searching albums by artist:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  const fetchSongs = async () => {
+    try {
+      const response = await axios.get(
+        `${VITE_SERVER_URL_LOCAL}/api/users/song`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching songs:", error);
+      throw error;
+    }
+  };
+
   useEffect(() => {
     if (isLoggedIn) {
-      fetchAlbums().then(data => setArtists(data)).catch(error => console.error(error));
+      fetchArtists();
+      fetchAlbums(currentPage);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn]);
@@ -169,9 +264,17 @@ export const AppProvider = ({ children }) => {
         handleLoginSubmit,
         handleRegisterSubmit,
         artists,
+        albums,
+        isLoading,
+        nextPage,
+        prevPage,
         fetchArtists,
-        fetchAlbums,
         searchArtistsByName,
+        searchAlbumsByName,
+        fetchSongs,
+        fetchAlbums,
+        fetchUserWelcome,
+        searchAlbumsByArtist,
       }}
     >
       {children}

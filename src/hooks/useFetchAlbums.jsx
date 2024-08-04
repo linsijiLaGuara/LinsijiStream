@@ -2,16 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../contexts/AppContext";
 
 const useFetchAlbums = () => {
-  const { fetchAlbums, isLoggedIn } = useContext(AppContext);
-  const [albums, setAlbums] = useState([]);
+  const { albums, fetchAlbums, isLoggedIn } = useContext(AppContext);
 
   useEffect(() => {
     if (isLoggedIn) {
-      fetchAlbums().then(data => setAlbums(data));
+      fetchAlbums();
     }
   }, [isLoggedIn, fetchAlbums]);
 
-  return { albums, fetchAlbums };
+  return { albums, isLoading: false, fetchAlbums };
 };
 
 export default useFetchAlbums;
