@@ -36,6 +36,26 @@
 .album-details {
   margin-top: 10px;
 }
-.artist-item{
+.artist-item {
   margin-top: 4%;
+}
+
+.search-button {
+  margin-left: 10px;
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  color: #fff; /* Color del texto */
+  background-color: #400444; /* Color de fondo */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Puntero de mano al pasar sobre el botón */
+  transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+.search-button:hover {
+  background-color: #192253; /* Color de fondo al pasar el ratón */
+}
+
+.search-button:active {
+  transform: scale(0.98); /* Efecto de presionado */
 }

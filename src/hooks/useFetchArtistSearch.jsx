@@ -4,7 +4,7 @@ import { AppContext } from "../contexts/AppContext";
 const useFetchArtistSearch = () => {
   const { searchAlbumsByArtist, isLoading } = useContext(AppContext);
 
-  const [searchResults, setSearchResults] = useState([]); // Inicializa searchResults como un array vacío
+  const [searchResults, setSearchResults] = useState([]);
 
   const searchArtists = async (query) => {
     try {
