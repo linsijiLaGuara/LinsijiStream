@@ -6,7 +6,8 @@ import IconsPly from "../components/Icons";
 import useFetchArtistSearch from "../hooks/useFetchArtistSearch";
 
 const Search = ({ setCurrentTrack }) => {
-  const { searchResults, searchArtists, isLoading, albums, loadAlbums } = useFetchArtistSearch();
+  const { searchResults, searchArtists, isLoading, albums, loadAlbums } =
+    useFetchArtistSearch();
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -37,8 +38,22 @@ const Search = ({ setCurrentTrack }) => {
             <div className="albums-list">
               {isLoading ? (
                 <p>Loading...</p>
+              ) : query ? (
+                searchResults.map((artist, index) => (
+                  <div key={index} className="artist-item">
+                    <img
+                      src={artist.imagen}
+                      alt={artist.nombre_artista}
+                      className="artist-image"
+                    />
+                    
+                    <div className="artist-details">
+                      <p>{artist.nombre_artista}</p>
+                    </div>
+                  </div>
+                ))
               ) : (
-                (query ? searchResults : albums).map((album, index) => (
+                albums.map((album, index) => (
                   <div
                     key={index}
                     className="album-item"
@@ -49,9 +64,9 @@ const Search = ({ setCurrentTrack }) => {
                       alt={album.nombre}
                       className="album-image"
                     />
-                    <div className="album-details"><IconsPly />
+                    <div className="album-details">
+                      <IconsPly />
                       <h2>{album.nombre}</h2>
-                      <p>{album.artist_name}</p>
                     </div>
                   </div>
                 ))

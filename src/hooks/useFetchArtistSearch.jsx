@@ -1,3 +1,4 @@
+// useFetchArtistSearch.js
 import { useState, useContext, useCallback } from "react";
 import { AppContext } from "../contexts/AppContext";
 
