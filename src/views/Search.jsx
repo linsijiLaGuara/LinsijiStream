@@ -1,5 +1,7 @@
 // Search.jsx
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
 import "./Search.css";
 import Sidebarwelcomen from "../components/SidebarWelcome";
 import IconsPly from "../components/Icons";
@@ -45,8 +47,8 @@ const Search = ({ setCurrentTrack }) => {
                       src={artist.imagen}
                       alt={artist.nombre_artista}
                       className="artist-image"
-                    />
-                    
+                    />{" "}
+                    <IconsPly />
                     <div className="artist-details">
                       <p>{artist.nombre_artista}</p>
                     </div>
