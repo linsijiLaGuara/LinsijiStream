@@ -127,9 +127,27 @@ export const AppProvider = ({ children }) => {
           },
         }
       );
+    
       return response.data;
     } catch (error) {
       console.error("Error fetching albums:", error);
+      throw error;
+    }
+  };
+
+  const searchArtistsByName = async (query) => {
+    try {
+      const response = await axios.get(
+        `${VITE_SERVER_URL_LOCAL}/api/users/search?query=${query}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error searching artists:", error);
       throw error;
     }
   };
@@ -153,6 +171,7 @@ export const AppProvider = ({ children }) => {
         artists,
         fetchArtists,
         fetchAlbums,
+        searchArtistsByName,
       }}
     >
       {children}

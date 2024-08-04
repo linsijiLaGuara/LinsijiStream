@@ -1,15 +1,24 @@
+// Search.jsx
 import React, { useState, useEffect } from "react";
-import albums_mockup from "../mockupServices/albumList.json";
 import "./Search.css";
 import Sidebarwelcomen from "../components/SidebarWelcome";
 import IconsPly from "../components/Icons";
+import useFetchArtistSearch from "../hooks/useFetchArtistSearch";
 
 const Search = ({ setCurrentTrack }) => {
-  const [albums, setAlbums] = useState([]);
+  const { searchResults, searchArtists, isLoading, albums, loadAlbums } = useFetchArtistSearch();
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
-    setAlbums(albums_mockup);
-  }, []);
+    loadAlbums();
+  }, [loadAlbums]);
+
+  const handleSearch = (event) => {
+    setQuery(event.target.value);
+    if (event.target.value.trim()) {
+      searchArtists(event.target.value);
+    }
+  };
 
   return (
     <>
@@ -18,25 +27,35 @@ const Search = ({ setCurrentTrack }) => {
         <div className="main-content-search">
           <h1>Buscar</h1>
           <div className="search-container">
+            <input
+              type="text"
+              value={query}
+              onChange={handleSearch}
+              placeholder="Buscar artista..."
+              className="search-input"
+            />
             <div className="albums-list">
-              {albums.map((album, index) => (
-                <div
-                  key={index}
-                  className="album-item"
-                  onClick={() => setCurrentTrack(album.track)}
-                >
-                  <img
-                    src={album.url_image}
-                    alt={album.nombre_album}
-                    className="album-image"
-                  />
-                  <div className="album-details"><IconsPly />
-                    <h2>{album.nombre_album}</h2>
-
-                    <p>{album.artist_name}</p>
+              {isLoading ? (
+                <p>Loading...</p>
+              ) : (
+                (query ? searchResults : albums).map((album, index) => (
+                  <div
+                    key={index}
+                    className="album-item"
+                    onClick={() => setCurrentTrack(album.track)}
+                  >
+                    <img
+                      src={album.img}
+                      alt={album.nombre}
+                      className="album-image"
+                    />
+                    <div className="album-details"><IconsPly />
+                      <h2>{album.nombre}</h2>
+                      <p>{album.artist_name}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))
+              )}
             </div>
           </div>
         </div>
