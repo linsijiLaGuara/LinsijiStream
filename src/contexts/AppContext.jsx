@@ -1,6 +1,6 @@
 // AppContext.jsx
 import { createContext, useState, useEffect, useCallback } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 const { VITE_SERVER_URL_LOCAL } = import.meta.env;
@@ -46,7 +46,6 @@ export const AppProvider = ({ children }) => {
   };
 
   const handleLoginSubmit = async (event) => {
- 
     event.preventDefault();
 
     const {
@@ -94,7 +93,7 @@ export const AppProvider = ({ children }) => {
       await axios.post(`${VITE_SERVER_URL_LOCAL}/api/users/register`, userData);
 
       window.alert("Usuario registrado con éxito.");
-      window.location.href = "/login";
+      navigate("/login");
     } catch (error) {
       console.error("Register error:", error);
       throw new Error("Error al registrar el usuario. Verifique los datos.");
