@@ -6,6 +6,13 @@ const { VITE_SERVER_URL_LOCAL } = import.meta.env;
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
+  const [isLoggedIn, setisLoggedIn] = useState(!!localStorage.getItem("token"));
+  const [artists, setArtists] = useState([]);
+  const [albums, setAlbums] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [songs, setSongs] = useState([]);
+
   const [userSession, setUserSession] = useState(
     localStorage.getItem("session")
       ? JSON.parse(localStorage.getItem("session"))
@@ -18,12 +25,6 @@ export const AppProvider = ({ children }) => {
   const [token, setToken] = useState(
     localStorage.getItem("token") ? localStorage.getItem("token") : null
   );
-
-  const [isLoggedIn, setisLoggedIn] = useState(!!localStorage.getItem("token"));
-  const [artists, setArtists] = useState([]);
-  const [albums, setAlbums] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
 
   const logIn = async (userData) => {
     const tokenJson = await axios.post(
@@ -229,23 +230,33 @@ export const AppProvider = ({ children }) => {
       setIsLoading(false);
     }
   };
-  const fetchSongs = async () => {
+  const fetchSongs = useCallback(async () => {
+    if (!isLoggedIn) return;
+
+    setIsLoading(true);
     try {
       const response = await axios.get(
-        `${VITE_SERVER_URL_LOCAL}/api/users/song`,
+        `${VITE_SERVER_URL_LOCAL}/api/users/songs`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
+      setSongs(response.data);
+      setIsLoading(false);
       return response.data;
     } catch (error) {
       console.error("Error fetching songs:", error);
-      throw error;
+      setIsLoading(false);
     }
-  };
+  }, [token, isLoggedIn]);
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchSongs();
+    }
+  }, [isLoggedIn, fetchSongs]);
   useEffect(() => {
     if (isLoggedIn) {
       fetchArtists();

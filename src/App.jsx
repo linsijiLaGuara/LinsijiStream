@@ -6,7 +6,6 @@ import Home from "./views/Home";
 import Welcome from "./views/Welcome";
 import Search from "./views/Search";
 import { AppProvider } from "./contexts/AppContext";
-import MusicPlayer from "./components/MusicPlayer";
 import "./App.css";
 
 function App() {

@@ -40,16 +40,24 @@ const Search = ({ setCurrentTrack }) => {
               {isLoading ? (
                 <p>Loading...</p>
               ) : Array.isArray(searchResults) && searchResults.length > 0 ? (
-                searchResults.map((artist, index) => (
+                searchResults.map((album, index) => (
                   <div key={index} className="artist-item">
                     <img
-                      src={artist.img}
-                      alt={artist.nombre}
+                      src={album.img}
+                      alt={album.nombre}
                       className="album-image"
                     />
                     <IconsPly />
                     <div className="artist-details">
-                      <p>{artist.nombre}</p>
+                      {album.canciones.map((cancion, indexCancion) => (
+                        <div key={indexCancion} className="song-item">
+                          <div>{cancion.titulo}</div>
+                          <audio controls>
+                            <source src={cancion.url} type="audio/mpeg" />
+                            Tu navegador no soporta el elemento de audio.
+                          </audio>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ))
