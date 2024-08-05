@@ -1,5 +1,7 @@
 // AppContext.jsx
 import { createContext, useState, useEffect, useCallback } from "react";
+import { useNavigate } from 'react-router-dom';
+
 import axios from "axios";
 const { VITE_SERVER_URL_LOCAL } = import.meta.env;
 
@@ -25,7 +27,7 @@ export const AppProvider = ({ children }) => {
   const [token, setToken] = useState(
     localStorage.getItem("token") ? localStorage.getItem("token") : null
   );
-
+  const navigate = useNavigate();
   const logIn = async (userData) => {
     const tokenJson = await axios.post(
       `${VITE_SERVER_URL_LOCAL}/api/users/login`,
@@ -44,6 +46,7 @@ export const AppProvider = ({ children }) => {
   };
 
   const handleLoginSubmit = async (event) => {
+ 
     event.preventDefault();
 
     const {
@@ -79,7 +82,7 @@ export const AppProvider = ({ children }) => {
       );
       setToken(token);
 
-      window.location.href = "/welcome";
+      navigate("/welcome");
     } catch (error) {
       console.error("Login error:", error);
       window.alert("Error al iniciar sesión. Verifique sus credenciales.");
