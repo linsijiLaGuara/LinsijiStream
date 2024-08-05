@@ -18,35 +18,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-.icon-font {
-  font-size: 50px;
-  color: #fff;
-}
-
-.icon-fa {
-  color: #f9f9f9;
-  border-color: #262222;
-}
-.icon-fa:hover {
-  color: #3b0404;
-  border-color: #1d0221;
-}
-.icon-f {
-  display: flex;
-  gap: 5px;
-}
-.custom-icon {
-  border: 1px solid #ffffff4e;
-  border-radius: 50%; /* Corrected from 220% to 50% for circular border */
-  padding: 5px;
-  color: #ffffff;
-  transition: border-color 0.3s ease, color 0.3s ease;
-}
-
-.custom-icon:hover {
-  border-color: #ffffff;
-  color: #6f00ff;
-}
 
 .home-container {
   display: flex;
@@ -116,4 +87,56 @@ body {
 
 .custom-icon {
   font-size: 24px;
+}
+
+.icon-container-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid #ffffff4e;
+  border-radius: 50%; /* Corrected from 220% to 50% for circular border */
+  padding: 5px;
+  color: #ffffff;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-icon-pag {
+  font-size: 16px; /* Tamaño del ícono, ajústalo según tus necesidades */
+  cursor: pointer;
+  gap: 5px;
+}
+.custom-icon-pag :hover {
+  border-color: #ffffff;
+  color: #6f00ff;
+}
+
+.icon-font {
+  font-size: 50px;
+  color: #fff;
+}
+
+.icon-fa {
+  color: #f9f9f9;
+  border-color: #262222;
+}
+.icon-fa:hover {
+  color: #3b0404;
+  border-color: #1d0221;
+}
+.icon-f {
+  display: flex;
+  gap: 5px;
+}
+.custom-icon {
+  border: 1px solid #ffffff4e;
+  border-radius: 50%; /* Corrected from 220% to 50% for circular border */
+  padding: 5px;
+  color: #ffffff;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-icon:hover {
+  border-color: #ffffff;
+  color: #6f00ff;
 }

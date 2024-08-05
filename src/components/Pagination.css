@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Ajusta el espacio entre los íconos y los números de página si es necesario */
+}
+
+.pagination span {
+  cursor: pointer;
+  padding: 5px 10px; /* Ajusta el tamaño del área clickeable si es necesario */
+}
+
+.pagination .active {
+  font-weight: bold;
+}
+
+.pagination .icon-container-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination .custom-icon-pag {
+  font-size: 16px; /* Tamaño del ícono, ajústalo según tus necesidades */
+}
