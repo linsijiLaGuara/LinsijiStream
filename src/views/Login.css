@@ -1,4 +1,3 @@
-/* Login.css */
 
 .login-page {
   display: flex;
@@ -66,8 +65,8 @@ input:focus {
 }
 
 .form-button.small-button {
-  padding: 5px 10px; /* Reduce el tamaño del padding */
-  font-size: 14px; /* Reduce el tamaño de la fuente */
+  padding: 5px 10px;
+  font-size: 14px; 
 }
 
 p {

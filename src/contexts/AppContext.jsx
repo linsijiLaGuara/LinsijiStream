@@ -43,6 +43,7 @@ export const AppProvider = ({ children }) => {
     localStorage.removeItem("session");
     setToken(null);
     setUserSession({ email: "", nombre: "" });
+    navigate("/");
   };
 
   const handleLoginSubmit = async (event) => {

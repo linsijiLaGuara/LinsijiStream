@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { ImBooks } from "react-icons/im";
 import "./Sidebar.css";
-
+import LogoutButton from "../views/Logou";
 function Sidebarwolcomen() {
   return (
     <div className="sidebar-container">
@@ -42,7 +42,9 @@ function Sidebarwolcomen() {
           </div>
         </div>
       </div>
+
       <div className="empty-menu">
+        <LogoutButton />
         <div className="empty-menu-color"></div>
       </div>
     </div>

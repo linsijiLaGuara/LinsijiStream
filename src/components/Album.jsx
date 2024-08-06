@@ -9,7 +9,7 @@ const Album = () => {
   const [album, setAlbum] = useState(null);
 
   useEffect(() => {
-    // Reemplaza con tu lógica de obtención de álbum
+  
     const fetchAlbum = async () => {
       try {
         const response = await axios.get(`/api/albums/${albumId}`);

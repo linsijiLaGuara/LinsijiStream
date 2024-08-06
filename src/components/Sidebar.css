@@ -87,3 +87,22 @@ margin-bottom: 3%;
 .navlink-style:hover {
   text-decoration: none;
 }
+.custom-cerrar-button {
+  display: flex;
+  justify-content: center;
+margin-top: 2%;
+  background-color: #b9b9b9;
+  color: #ffffff;
+  border: 1px solid #707070;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+
+}
+.custom-cerrar-button:hover {
+  background-color: #909090;
+  color: #ffffff;
+}
